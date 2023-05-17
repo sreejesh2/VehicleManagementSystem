@@ -1,0 +1,13 @@
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+   path('register/',views.RegistrationView.as_view(),name='register'),
+   path('login/',views.LoginView.as_view(),name='login'),
+   path('logout/',views.log_out_view,name='logout'),
+   path('vehicle/create/',views.VehicleCreateView.as_view(),name='create-vehicle'),
+   path('vehicle/all/',views.VehicleListView.as_view(),name='all-vehicles'),
+   path('vehicle/<int:pk>/',views.VehicleDetailView.as_view(),name='vehicle-detail'),
+   path('vehicle/<int:pk>/update/',views.VehicleUpdateView.as_view(),name='update-vehicle'),
+]
