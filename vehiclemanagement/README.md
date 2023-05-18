@@ -31,7 +31,7 @@ Access the web app in your browser: http://localhost:8000
 Sign up for a new account or log in if you already have one.
 User Roles:
 ### Super Admin: Super admins have the highest level of access and can perform all actions.
-### Admin: Admins can manage vehicle records, including creating, updating, and deleting vehicles.
+### Admin: Admins can manage vehicle records, including updating vehicles.
 ### User: Regular users can view vehicle records but cannot make any changes.
 ### APIs
 The web app also provides APIs for programmatic access. Below are the available endpoints:
