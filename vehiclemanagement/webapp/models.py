@@ -1,7 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import Group
+from django.contrib.auth.models import Permission
 
 # Create your models here.
+
 
 class User(AbstractUser):
     ROLE_CHOICES = (
@@ -9,25 +12,12 @@ class User(AbstractUser):
         ('admin', 'Admin'),
         ('user', 'User'),
     )
+    email = models.EmailField(default='example@example.com')
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
 
 
-    groups = models.ManyToManyField(
-    'auth.Group',
-    verbose_name='groups',
-    blank=True,
-    help_text='The groups this user belongs to.',
-    related_name='webapp_user_set',  # Custom related_name
-    related_query_name='user',
-)
-    user_permissions = models.ManyToManyField(
-        'auth.Permission',
-        verbose_name='user permissions',
-        blank=True,
-        help_text='Specific permissions for this user.',
-        related_name='webapp_user_set',  # Custom related_name
-        related_query_name='user',
-    )
+
+
 
 
 
@@ -50,6 +40,10 @@ class Vehicle(models.Model):
         img = VehicleImage.objects.filter(vehicle=self)
         print(img)
         return img
+
+    @property
+    def images(self):
+        return VehicleImage.objects.filter(vehicle=self)    
     
     def __str__(self):
         return self.vehicle_number

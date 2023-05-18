@@ -8,6 +8,12 @@ vehicle all
 {% block content %}
 
 <div class="container">
+  {% if request.user.role == 'superadmin' %}
+  <a href="{%url 'create-vehicle'%}" class="btn btn-success m-5">Add Vehicle</a>
+
+
+
+  {% endif %}
     <div class="row  ">
      {%for vehicle in vehicles%}
      <div class="col-3 mt-4 ">
@@ -22,13 +28,29 @@ vehicle all
             <div class="card-body">
               <h5 class="card-title">{{vehicle.vehicle_number}}</h5>
               <a href="{%url 'vehicle-detail' vehicle.id %}" class="btn btn-primary">view</a>
+              {% if request.user.role == 'superadmin' %}
               <a href="{%url 'update-vehicle' vehicle.id %}" class="btn btn-warning">update</a>
+
+             {% elif request.user.role == 'admin'%}
+             <a href="{%url 'update-vehicle' vehicle.id %}" class="btn btn-warning">update</a>
+
+              {% endif %}
+              {% if request.user.role == 'superadmin' %}
+              <a href="{%url 'veh-delete' vehicle.id %}" class="btn btn-danger">delete</a>
+
+            
+
+              {% endif %}
+
 
             </div>
           </div>
        </div>
+
      {%endfor%}
+
     </div>
+
 </div>
 
 

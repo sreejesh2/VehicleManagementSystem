@@ -94,7 +94,7 @@ class VehicleCreateView(View):
                         vehicle=vehicle, image=image)
                     img.save()
             messages.success(request, 'vehicle created successfully')
-            return redirect('login')
+            return redirect('all-vehicles')
         messages.error(request, 'invalid details')
         return render(request, 'vehicle-create.html', {'form': form, 'formset': formset})
 
@@ -121,3 +121,11 @@ class VehicleUpdateView(UpdateView):
     model = Vehicle
     template_name = 'vehicle-update.html'
     success_url = reverse_lazy('all-vehicles')
+
+@method_decorator(sadecks, name='dispatch')
+class VehicleDeleteView(View):
+    def get(self,request,*args, **kwargs):
+        id=kwargs.get('pk')
+        Vehicle.objects.get(id=id).delete()
+        return redirect('all-vehicles')
+

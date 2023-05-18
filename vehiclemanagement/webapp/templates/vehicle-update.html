@@ -24,7 +24,7 @@ vehicle update
             {% endif %}
             {% endfor %}
 
-            <h1 class="text-center">Vehicle Create Form</h1>
+            <h1 class="text-center">Vehicle Update Form</h1>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}

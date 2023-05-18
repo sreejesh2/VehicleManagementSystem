@@ -10,10 +10,10 @@ def superadmin_required(func):
         return func(request,*args, **kwargs)
     return wrapper
 
-   
+owners=["superadmin","admin"]
 def admin_required(func):
     def wrapper(request,*args, **kwargs):
-        if not request.user.role == 'admin':
+        if not request.user not in owners:
             messages.error(request,"You have no permission this oparaton")
             return redirect('login')
         return func(request,*args, **kwargs)
