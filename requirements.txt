@@ -2,7 +2,7 @@ asgiref==3.7.2
 certifi==2023.11.17
 charset-normalizer==3.3.2
 cloudinary==1.37.0
-Django==5.0
+Django==4.2.8
 django-cloudinary-storage==0.3.0
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.3.1
