@@ -87,18 +87,17 @@ WSGI_APPLICATION = 'vehiclemanagement.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'your_database_name',
-#         'USER': 'your_database_user',
-#         'PASSWORD': 'your_database_password',
-#         'HOST': 'localhost',  # Set to the PostgreSQL host
-#         'PORT': '5432',       # Set to the PostgreSQL port
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '64b42e1A**E6AD221D5e2D6E4cDgbD5e',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '22217',    
+    }
+}
 
-DATABASE_URL = "postgres://betlcvai:0e41JYC9QwrLGB02CGkOogTsdyS3FZt3@drona.db.elephantsql.com/betlcvai"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
