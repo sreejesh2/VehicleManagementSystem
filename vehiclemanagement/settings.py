@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-
+import cloudinary_storage
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'webapp',
     'apiapp',
     'rest_framework',
     'rest_framework_simplejwt',
     'drf_yasg',
+    
     
 ]
 
@@ -151,3 +153,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = 'webapp.User'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dvut4yrpo',
+    'API_KEY': '967786739644936',
+    'API_SECRET': 'snsNCbYjDYOgnzZAlkLPMfgDaqU'
+}
